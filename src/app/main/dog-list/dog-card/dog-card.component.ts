@@ -15,7 +15,7 @@ export class DogCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpSvc.getBreds().subscribe(dogs => {
+    this.httpSvc.getAllBreds().subscribe(dogs => {
       console.log(dogs)
 
     })
