@@ -1,7 +1,5 @@
 export interface Breed {
-    message: {
-        subBreed: []
-    },
+    message: [],
     status: string
 }
 

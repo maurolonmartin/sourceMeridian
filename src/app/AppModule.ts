@@ -8,6 +8,7 @@ import { SpinnerInterceptor } from './shared/spinner/spinner.interceptor';
 import { MainModule } from './main/main.module';
 import { HttpServiceService } from './shared/services/http-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
         AppComponent
     ],
     imports: [
+        AppRoutingModule,
         HttpClientModule,
         BrowserModule,
         BrowserAnimationsModule,
