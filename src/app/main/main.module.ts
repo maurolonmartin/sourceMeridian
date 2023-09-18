@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DogCardComponent } from './dog-list/dog-card/dog-card.component';
 import { DogRandomComponent } from './dog-random/dog-random.component';
 import { MainRoutingModule } from './main-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,6 +19,7 @@ import { MainRoutingModule } from './main-routing.module';
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
     MainRoutingModule
   ]
 })
