@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, concatMap, from, map, startWith, take, toArray } from 'rxjs';
 import { DogBreed } from 'src/app/shared/interfaces/breed';
 import { HttpServiceService } from 'src/app/shared/services/http-service.service';
-import { FormControl } from '@angular/forms';
 
 export interface User {
   name: string;
@@ -25,7 +24,6 @@ export class DogListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dogBreeds$ = this.httpSvc.getAllBreeds();
-    console.log(this.dogBreeds$)
   }
 
   getBreed(event$: DogBreed): void {

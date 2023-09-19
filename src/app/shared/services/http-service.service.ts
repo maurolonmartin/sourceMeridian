@@ -43,5 +43,9 @@ export class HttpServiceService {
     }
     return this.http.get<Breed>(configUrl);
   }
+
+  getRamdonBreed(): Observable<Breed> {
+    return this.http.get<Breed>(`${this.apiURl}/breeds/image/random`)
+  }
 }
 

@@ -1,5 +1,5 @@
 export interface Breed {
-    message: [],
+    message: string,
     status: string
 }
 

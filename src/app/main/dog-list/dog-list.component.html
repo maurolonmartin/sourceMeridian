@@ -11,8 +11,8 @@
     </mat-form-field>
 
     <div class="dogs-grid">
-        <div *ngFor="let dato of urlsToShowInCard">
-            <app-dog-card [url]="dato" [breed]="selectedBreed"></app-dog-card>
+        <div *ngFor="let url of urlsToShowInCard">
+            <app-dog-card [url]="url" [breed]="selectedBreed"></app-dog-card>
         </div>
     </div>
 </div>
