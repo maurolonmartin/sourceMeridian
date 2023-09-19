@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpServiceService } from 'src/app/shared/services/http-service.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dog-card',
@@ -8,5 +7,6 @@ import { HttpServiceService } from 'src/app/shared/services/http-service.service
 })
 export class DogCardComponent {
 
-
+  @Input({ required: true }) url!: string;
+  @Input({ required: true }) breed!: string;
 }
