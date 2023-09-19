@@ -1,18 +1,18 @@
-<h1>Bienvenido a nuestro portal de razas</h1>
+<div class="container">
+    <h1>Bienvenido a nuestro portal de razas</h1>
 
-<h4>Selección de razas</h4>
+    <h4>Selector de Razas</h4>
+    <mat-form-field>
+        <mat-label>Razas</mat-label>
+        <mat-select (selectionChange)="getBreed($event.value)">
+            <mat-option>Seleccione una raza</mat-option>
+            <mat-option *ngFor="let option of dogBreeds$ | async" [value]="option">{{option.breed}}</mat-option>
+        </mat-select>
+    </mat-form-field>
 
-<h4>mat-select</h4>
-<mat-form-field>
-    <mat-label>State</mat-label>
-    <mat-select (selectionChange)="getBreed($event.value)">
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let option of dogBreeds$ | async" [value]="option">{{option.breed}}</mat-option>
-    </mat-select>
-</mat-form-field>
-
-<div class="dogs-grid">
-    <div *ngFor="let dato of urlsToShowInCard">
-        <app-dog-card [url]="dato" [breed]="selectedBreed"></app-dog-card>
+    <div class="dogs-grid">
+        <div *ngFor="let dato of urlsToShowInCard">
+            <app-dog-card [url]="dato" [breed]="selectedBreed"></app-dog-card>
+        </div>
     </div>
 </div>

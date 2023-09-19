@@ -25,19 +25,17 @@ export class DogListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dogBreeds$ = this.httpSvc.getAllBreeds();
+    console.log(this.dogBreeds$)
   }
 
   getBreed(event$: DogBreed): void {
-
     this.httpSvc.getBreed(event$.breed, false).subscribe(response => {
       if (response.status === 'success') {
         this.selectedBreed = event$.breed;
-        this.urlsToShow = this.obtenerElementosAlAzar(response.message)
-          .subscribe(elementosAlAzar => {
-            this.urlsToShow = elementosAlAzar;
-            console.log(this.urlsToShow) // true)
+        this.urlsToShow = this.obtainRandomElements(response.message)
+          .subscribe(randomElements => {
+            this.urlsToShow = randomElements;
             this.urlsToShowInCard = this.urlsToShow;
-            console.log('this.urlsToShow', (this.urlsToShow));
           },
             error => {
               console.error('Error:', error);
@@ -46,39 +44,13 @@ export class DogListComponent implements OnInit {
     });
   }
 
-  obtenerElementosAlAzar(arreglo: any[]): Observable<any[]> {
-    return from(arreglo).pipe(
+  obtainRandomElements(array: any[]): Observable<any[]> {
+    return from(array).pipe(
       concatMap(value => from([value]).pipe(take(1))),
       toArray(),
       concatMap(array => from(array).pipe(take(9))),
       toArray()
     );
   }
-
-  selectPics(urlsArray: any) {
-    return from(urlsArray).pipe(concatMap(value => from([value]).pipe(take(1))),
-      toArray(),
-      concatMap(urlsArray => from(urlsArray).pipe(take(9))),
-      toArray()
-    ).toPromise()
-  }
-
-  // obtenerElementosAlAzar(arreglo: any[]): any[] {
-  //   const elementosAlAzar: any[] = [];
-
-  //   // Creamos una copia del arreglo original para no modificarlo directamente
-  //   const copiaArreglo = [...arreglo];
-
-  //   // Iteramos 9 veces para obtener 9 elementos al azar
-  //   for (let i = 0; i < 9; i++) {
-  //     // Generamos un índice aleatorio entre 0 y la longitud actual del arreglo
-  //     const indiceAleatorio = Math.floor(Math.random() * copiaArreglo.length);
-
-  //     // Agregamos el elemento correspondiente al índice aleatorio al arreglo resultado
-  //     elementosAlAzar.push(copiaArreglo.splice(indiceAleatorio, 1)[0]);
-  //   }
-
-  //   return elementosAlAzar;
-  // }
 
 }
