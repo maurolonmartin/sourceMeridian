@@ -34,16 +34,6 @@ export class DogService {
     return this.http.get<any>(configUrl);
   }
 
-  getSubBreed(breed: string, subBreed: string, random?: boolean): Observable<Breed> {
-    let configUrl = ''
-    if (random) {
-      configUrl = `${this.apiURl}/${breed}/${subBreed}/images/random`;
-    } else {
-      configUrl = `${this.apiURl}/${breed}/${subBreed}/images`;
-    }
-    return this.http.get<Breed>(configUrl);
-  }
-
   getRamdonBreed(): Observable<Breed> {
     return this.http.get<Breed>(`${this.apiURl}/breeds/image/random`)
   }
