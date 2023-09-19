@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
-import { HttpServiceService } from '../../shared/services/http-service.service';
-import { filter, from, map } from 'rxjs';
+import { DogService } from '../../shared/services/dogService.service';
 
 @Component({
   selector: 'app-dog-random',
-  templateUrl: './dog-random.component.html',
-  styleUrls: ['./dog-random.component.scss']
+  template: `
+    <div class="container">
+      <h1>Presiona el boton para ver una raza al azar y conocer su nombre</h1>
+      <div class="example-button-row">
+          <button mat-raised-button (click)="searchRandomBreed()">Buscar</button>
+      </div>
+      <div *ngIf="searched">
+          <app-dog-card [url]="responseFromApi" [breed]="breed"></app-dog-card>
+      </div>
+    </div>
+  `,
 })
 export class DogRandomComponent {
 
@@ -14,10 +22,10 @@ export class DogRandomComponent {
   breed = '';
 
 
-  constructor(private htttpSvc: HttpServiceService) { }
+  constructor(private dogSvc: DogService) { }
 
   searchRandomBreed() {
-    this.htttpSvc.getRamdonBreed().subscribe(response => {
+    this.dogSvc.getRamdonBreed().subscribe(response => {
       if (response.status === 'success') {
         this.responseFromApi = response.message;
       }

@@ -1,9 +1,0 @@
-<div class="container">
-    <h1>Presiona el boton para ver una raza al azar y conocer su nombre</h1>
-    <div class="example-button-row">
-        <button mat-raised-button (click)="searchRandomBreed()">Buscar</button>
-    </div>
-    <div *ngIf="searched">
-        <app-dog-card [url]="responseFromApi" [breed]="breed"></app-dog-card>
-    </div>
-</div>

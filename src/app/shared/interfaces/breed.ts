@@ -7,7 +7,6 @@ export interface SubBreed {
     subBreed: []
 }
 
-
 export interface DogBreedsResult {
     message: Record<string, string[]>;
 }

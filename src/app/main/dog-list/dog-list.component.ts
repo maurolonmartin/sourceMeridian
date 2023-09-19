@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, concatMap, from, map, startWith, take, toArray } from 'rxjs';
 import { DogBreed } from 'src/app/shared/interfaces/breed';
-import { HttpServiceService } from 'src/app/shared/services/http-service.service';
+import { DogService } from 'src/app/shared/services/dogService.service';
 
 export interface User {
   name: string;
@@ -20,14 +20,14 @@ export class DogListComponent implements OnInit {
 
   urlsToShowInCard: string[] = [];
 
-  constructor(private readonly httpSvc: HttpServiceService) { }
+  constructor(private readonly dogSvc: DogService) { }
 
   ngOnInit(): void {
-    this.dogBreeds$ = this.httpSvc.getAllBreeds();
+    this.dogBreeds$ = this.dogSvc.getAllBreeds();
   }
 
   getBreed(event$: DogBreed): void {
-    this.httpSvc.getBreed(event$.breed, false).subscribe(response => {
+    this.dogSvc.getBreed(event$.breed, false).subscribe(response => {
       if (response.status === 'success') {
         this.selectedBreed = event$.breed;
         this.urlsToShow = this.obtainRandomElements(response.message)

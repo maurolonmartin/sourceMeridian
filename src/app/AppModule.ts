@@ -6,7 +6,6 @@ import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerInterceptor } from './shared/spinner/spinner.interceptor';
 import { MainModule } from './main/main.module';
-import { HttpServiceService } from './shared/services/http-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 

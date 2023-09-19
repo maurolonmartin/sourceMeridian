@@ -8,7 +8,6 @@ import { SpinnerService } from './spinner.service';
       <mat-spinner></mat-spinner>
     </div>
   `,
-  styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent {
 

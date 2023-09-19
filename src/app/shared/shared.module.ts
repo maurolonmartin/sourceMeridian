@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// Material Components 
-import { SpinnerComponent } from './spinner/spinner.component';
-import { MaterialModule } from './material/material/material.module';
-import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
 
+// Material and Components 
+import { MaterialModule } from './material/material/material.module';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent
   ],
   exports: [
-    SpinnerComponent,
     MaterialModule,
+    SpinnerComponent,
     HeaderComponent
   ],
   imports: [

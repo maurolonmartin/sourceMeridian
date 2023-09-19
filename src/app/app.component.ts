@@ -4,10 +4,9 @@ import { SpinnerService } from './shared/spinner/spinner.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sourceMeridian';
+  title = 'SourceMeridian Dog App';
   isLoading$ = this.spinnerSvc.isLoading$;
 
   constructor(private spinnerSvc: SpinnerService) { }

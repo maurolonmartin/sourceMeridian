@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Breed, DogBreed, DogBreedsResult } from '../interfaces/breed';
 
 function mapResult(results: DogBreedsResult): DogBreed[] {
@@ -13,7 +13,7 @@ function mapResult(results: DogBreedsResult): DogBreed[] {
 @Injectable({
   providedIn: 'root'
 })
-export class HttpServiceService {
+export class DogService {
 
   apiURl = 'https://dog.ceo/api'
 
